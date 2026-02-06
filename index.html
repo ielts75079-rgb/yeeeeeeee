@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rose Day 🌹</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom, #fff1f5, #ffd6de);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    /* Boy animation */
+    .boy {
+      position: absolute;
+      bottom: 30px;
+      left: -200px;
+      font-size: 60px;
+      animation: walk 6s linear forwards;
+    }
+
+    @keyframes walk {
+      from {
+        left: -200px;
+      }
+      to {
+        left: 45%;
+      }
+    }
+
+    /* Falling roses */
+    .rose {
+      position: fixed;
+      top: -50px;
+      font-size: 30px;
+      animation: fall 6s linear forwards;
+      cursor: pointer;
+    }
+
+    @keyframes fall {
+      from {
+        top: -50px;
+        opacity: 1;
+      }
+      to {
+        top: 110%;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Boy holding rose -->
+<div class="boy">👦🌹</div>
+
+<script>
+  // Create falling roses
+  setInterval(() => {
+    const rose = document.createElement("div");
+    rose.className = "rose";
+    rose.innerHTML = "🌹";
+    rose.style.left = Math.random() * 100 + "vw";
+
+    document.body.appendChild(rose);
+
+    setTimeout(() => {
+      rose.remove();
+    }, 6000);
+  }, 500);
+</script>
+
+</body>
+</html>
